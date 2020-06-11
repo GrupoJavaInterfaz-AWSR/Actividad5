@@ -5,6 +5,8 @@
  */
 package app;
 
+import app.login.LoginTemplate;
+
 /**
  *
  * @author AndresFWilT
@@ -15,8 +17,7 @@ public class app {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        VistaPrincipalTemplate iniciar = new VistaPrincipalTemplate();
-        iniciar.saludar();
+        LoginTemplate vista = new LoginTemplate();
     }
     
 }
