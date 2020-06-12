@@ -5,7 +5,7 @@
  */
 package app;
 
-import login.LoginTemplate;
+import app.client.login.LoginTemplate;
 
 /**
  *
