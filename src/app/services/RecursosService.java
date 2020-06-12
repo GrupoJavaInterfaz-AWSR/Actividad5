@@ -9,7 +9,7 @@ import javax.swing.ImageIcon;
 
 public class RecursosService {
 
-    private Color colorNaranja, colorGrisOscuro;
+    private Color colorNaranja, colorGrisOscuro,colorNegro;
     private Font fontTPrincipal, fontTitulo, fontSubtitulo;
     private Cursor cMano;
     private Border borderInferiorNaranja;
@@ -17,6 +17,7 @@ public class RecursosService {
     static private RecursosService servicio;
 
     private RecursosService(){
+        colorNegro = new Color (44,13,10);
         colorNaranja = new Color(255,128,0);
         colorGrisOscuro = new Color(80, 80, 80);
         fontTPrincipal = new Font("Rockwell Extra Bold", Font.PLAIN, 20);
@@ -26,6 +27,11 @@ public class RecursosService {
         borderInferiorNaranja = BorderFactory.createMatteBorder(0, 0, 2, 0, colorNaranja);
    
     }
+    
+    public Color getColorNegro(){
+        return colorNegro;
+    }
+    
     
     public Color getColorNaranja(){
         return colorNaranja;

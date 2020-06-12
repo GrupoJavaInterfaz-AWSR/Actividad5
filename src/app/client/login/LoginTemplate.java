@@ -1,16 +1,16 @@
 package app.client.login;
 
+//@author AndresFWilT
+
+
 import app.services.ObjGraficosService;
 import app.services.RecursosService;
+
 import java.awt.Color;
 import static java.awt.Color.DARK_GRAY;
-import java.awt.Cursor;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
-import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import java.awt.Image;
@@ -19,10 +19,12 @@ import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import java.awt.Font;
 
 public class LoginTemplate extends JFrame {
 
+    private static final long serialVersionUID = 7215779126893195799L;
+    
+    
     //Declaracion objetos graficos
     private JPanel pDerecha, pIzquierda;
     private JLabel lTituloApp, lEslogan, lTituloLogin, lNotificaciones, lFondo, lUsuario, lClave, lOnedrive, lLogo;
@@ -39,12 +41,17 @@ public class LoginTemplate extends JFrame {
     //Declaracion servicios
     private ObjGraficosService sObjGraficos;
     private RecursosService sRecursos;
+    private LoginComponent loginComponent;
 
-    public LoginTemplate() {
+    public LoginTemplate(LoginComponent loginComponent) {
         
         super("Login Usuario");
         this.setResizable(false);
         
+        
+        this.loginComponent = loginComponent;
+        
+       
         sObjGraficos = ObjGraficosService.getService();
         sRecursos = RecursosService.getService();
 
@@ -64,6 +71,8 @@ public class LoginTemplate extends JFrame {
         setLayout(null);
         setVisible(true);
     }
+
+    
 
     public void crearObjetosDecoradores() {
         iFondo = new ImageIcon("src/resources/Fondo.jpg");
@@ -113,6 +122,7 @@ public class LoginTemplate extends JFrame {
                 250, 45, sRecursos.getCMano(), null, null, sRecursos.getColorNaranja(),
                 Color.WHITE, null, "c", true
         );
+        bEntrar.addActionListener(loginComponent);
         pDerecha.add(bEntrar);
 
         //BOTÓN REGISTRARSE-----------------------------------------------------------------------
@@ -120,6 +130,7 @@ public class LoginTemplate extends JFrame {
                 "Registrarse", 230, 410, 145, 35, sRecursos.getCMano(), null,
                 null, sRecursos.getColorNaranja(), Color.WHITE, null, "c", true
         );
+        bRegistrarse.addActionListener(loginComponent);
         pDerecha.add(bRegistrarse);
 
         //BOTÓN OPCIÓN 1-----------------------------------------------------------------------------
@@ -127,6 +138,7 @@ public class LoginTemplate extends JFrame {
                 "Acerca de Power Point", 230, 410, 145, 35, sRecursos.getCMano(), null,
                 null, Color.WHITE, sRecursos.getColorNaranja(), null, "c", true
         );
+        bOpcion1.addActionListener(loginComponent);
         pIzquierda.add(bOpcion1);
 
         //BOTÓN OPCIÓN 2-----------------------------------------------------------------------------
@@ -202,5 +214,41 @@ public class LoginTemplate extends JFrame {
         lFondo = sObjGraficos.construirJLabel(null, 0, 0, 600, 600, iDimAux, null, null, null, "c");
         pIzquierda.add(lFondo);
 
+    }
+    
+    public JButton getBCerrar(){
+        return this.bCerrar;
+    }
+
+    public JButton getBEntrar(){
+        return this.bEntrar;
+    }
+
+    public JButton getBRegistrarse(){
+        return this.bRegistrarse;
+    }
+
+    public JButton getBOpcion1(){
+        return this.bOpcion1;
+    }
+
+    public JTextField getTNombreUsuario(){
+        return this.tNombreUsuario;
+    }
+
+    public JPasswordField getTClaveUsuario(){
+        return this.tClaveUsuario;
+    }
+
+    public JComboBox<String> getCbTipoUsuario(){
+        return this.cbTipoFondo;
+    }
+
+    public JCheckBox getCheckSi(){
+        return this.checkSi;
+    }
+
+    public JCheckBox getCheckNo(){
+        return this.checkNo;
     }
 }

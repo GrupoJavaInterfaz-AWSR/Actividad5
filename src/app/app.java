@@ -5,7 +5,7 @@
  */
 package app;
 
-import app.client.login.LoginTemplate;
+import app.client.login.LoginComponent;
 
 /**
  *
@@ -16,8 +16,9 @@ public class app {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        LoginTemplate vista = new LoginTemplate();
+    public static void main(String[] args) throws Exception {
+        LoginComponent vista = new LoginComponent();
+        vista.getClass();
     }
-    
+
 }
